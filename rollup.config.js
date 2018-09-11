@@ -1,5 +1,4 @@
 import babel from 'rollup-plugin-babel';
-import babelrc from 'babelrc-rollup';
 import istanbul from 'rollup-plugin-istanbul';
 import merge from 'deepmerge';
 import { uglify } from 'rollup-plugin-uglify';
