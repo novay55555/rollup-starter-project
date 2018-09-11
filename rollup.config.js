@@ -8,7 +8,7 @@ let pkg = require('./package.json');
 let external = Object.keys(pkg.dependencies);
 
 let plugins = [
-  babel(babelrc()),
+  babel(),
 ];
 
 if (process.env.BUILD !== 'production') {
@@ -27,7 +27,6 @@ const base = {
     name: 'rollupStarterProject',
     sourcemap: true
   }
-
 };
 
 export default [
