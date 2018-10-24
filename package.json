@@ -12,7 +12,9 @@
     "watch": "rollup -c -w",
     "pretest": "rollup -c",
     "test": "mocha",
-    "prepublish": "BUILD=production npm test"
+    "prepublish": "BUILD=production npm test",
+    "precommit": "lint-staged",
+    "pretty": "prettier --write {lib,test}/*.js"
   },
   "repository": "rollup/rollup-starter-project",
   "keywords": [
@@ -42,12 +44,30 @@
     "babelrc-rollup": "^3.0.0",
     "deepmerge": "^2.1.1",
     "eslint": "^4.1.1",
+    "husky": "^1.1.2",
     "istanbul": "^0.4.5",
+    "lint-staged": "^7.3.0",
     "mocha": "^3.2.0",
+    "prettier": "^1.14.3",
     "rollup": "^0.65.2",
     "rollup-plugin-babel": "^4.0.3",
     "rollup-plugin-istanbul": "^1.1.0",
     "rollup-plugin-uglify": "^5.0.2",
     "rollup-watch": "^4.0.0"
+  },
+  "husky": {
+    "pre-commit": "npm run precommit"
+  },
+  "lint-staged": {
+    "linters": {
+      "*.js": [
+        "prettier --write",
+        "eslint",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "dist/*.*"
+    ]
   }
 }
